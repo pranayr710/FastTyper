@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastFingers - Typing Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <h1 class="brand">FastFingers</h1>
+            <div class="nav-buttons">
+                <button id="restartBtn" class="nav-button" title="Restart test">↻ Restart</button>
+            </div>
+        </nav>
+
+        <!-- Main Container -->
+        <main class="main-content">
+            <!-- Mode Selection -->
+            <div id="modeSelection" class="mode-selection">
+                <div class="mode-header">
+                    <h2>Choose Practice Mode</h2>
+                </div>
+                <div class="mode-buttons">
+                    <button class="mode-btn" data-mode="quotes" title="Practice with random quotes">
+                        <span class="mode-icon">📖</span>
+                        <span class="mode-name">Quotes</span>
+                    </button>
+                    <button class="mode-btn" data-mode="words" title="Practice with random words">
+                        <span class="mode-icon">🔤</span>
+                        <span class="mode-name">Words</span>
+                    </button>
+                    <button class="mode-btn" data-mode="chars" title="Practice with random characters">
+                        <span class="mode-icon">🔡</span>
+                        <span class="mode-name">Characters</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Length Selection (for words/chars) -->
+            <div id="lengthSelection" class="length-selection hidden">
+                <h3>Select Length</h3>
+                <div class="length-buttons">
+                    <button class="length-btn" data-length="10">10</button>
+                    <button class="length-btn" data-length="20">20</button>
+                    <button class="length-btn active" data-length="30">30</button>
+                </div>
+            </div>
+
+            <!-- Typing Test Area -->
+            <div id="testArea" class="test-area hidden">
+                <div class="stats-bar">
+                    <div class="stat">
+                        <span class="stat-label">WPM</span>
+                        <span class="stat-value" id="wpm">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Accuracy</span>
+                        <span class="stat-value" id="accuracy">100%</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Time</span>
+                        <span class="stat-value" id="timer">0s</span>
+                    </div>
+                </div>
+
+                <div class="test-display" id="testDisplay"></div>
+
+                <div class="test-input-area">
+                    <input 
+                        type="text" 
+                        id="testInput" 
+                        class="test-input" 
+                        placeholder="Start typing..."
+                        autocomplete="off"
+                        spellcheck="false"
+                    >
+                </div>
+
+                <div class="test-info">
+                    <p>Press <kbd>Backspace</kbd> to delete errors • Finish to see results</p>
+                </div>
+            </div>
+
+            <!-- Results Page -->
+            <div id="resultsPage" class="results-page hidden">
+                <h2>Test Complete!</h2>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-label">WPM</div>
+                        <div class="result-value" id="finalWpm">0</div>
+                        <div class="result-desc">Words Per Minute</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-label">Accuracy</div>
+                        <div class="result-value" id="finalAccuracy">0%</div>
+                        <div class="result-desc">Correct / Total</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-label">Raw WPM</div>
+                        <div class="result-value" id="finalRaw">0</div>
+                        <div class="result-desc">With Errors</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-label">Time</div>
+                        <div class="result-value" id="finalTime">0s</div>
+                        <div class="result-desc">Total Duration</div>
+                    </div>
+                </div>
+
+                <div id="mistakesSection" class="mistakes-section hidden">
+                    <h3>Mistakes</h3>
+                    <div class="mistakes-info">
+                        <div id="mistakeCount" class="mistake-stat"></div>
+                        <div id="weakKeys" class="mistake-stat"></div>
+                    </div>
+                </div>
+
+                <button class="retry-button" id="retryBtn">Try Again</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
